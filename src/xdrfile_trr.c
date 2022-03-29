@@ -595,6 +595,13 @@ int read_trr_header(const char* fn, int* natoms, unsigned long* nframes, int64_t
     return exdrOK;
 }
 
+void free_trr_offsets(int64_t** offsets)
+{
+    if (*offsets != NULL) {
+        free(*offsets);
+    }
+}
+
 int write_trr(XDRFILE* xd, int natoms, int step, float t, float lambda, matrix box, rvec* x,
               rvec* v, rvec* f) {
     return do_trn(xd, false, &step, &t, &lambda, box, &natoms, x, v, f, NULL);

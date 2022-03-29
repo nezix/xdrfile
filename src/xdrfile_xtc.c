@@ -204,6 +204,13 @@ int read_xtc_header(const char* fn, int* natoms, unsigned long* nframes, int64_t
     }
 }
 
+void free_xtc_offsets(int64_t** offsets)
+{
+    if (*offsets != NULL) {
+        free(*offsets);
+    }
+}
+
 /* Read subsequent frames */
 int read_xtc(XDRFILE* xd, int natoms, int* step, float* time, matrix box, rvec* x, float* prec) {
     int result;
