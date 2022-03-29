@@ -554,7 +554,7 @@ static void test_trr_offsets() {
         }
     }
 
-    free(offsets);
+    free_trr_offsets(offsets);
 
 #ifdef HAVE_UNISTD
     unlink(testfn);
@@ -596,7 +596,7 @@ static void test_xtc_uncompressed_offsets() {
         }
     }
 
-    free(offsets);
+    free_xtc_offsets(offsets);
 
 #ifdef HAVE_UNISTD
     unlink(testfn);
@@ -651,7 +651,8 @@ static void test_xtc_compressed_offsets() {
 
     xdrfile_close(xd);
 
-    free(offsets);
+    free_xtc_offsets(offsets);
+
 
 #ifdef HAVE_UNISTD
     unlink(testfn);
@@ -720,7 +721,7 @@ static void test_trr_flag() {
         }
     }
 
-    free(offsets);
+    free_trr_offsets(offsets);
 
 #ifdef HAVE_UNISTD
     unlink(testfn);

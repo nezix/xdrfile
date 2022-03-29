@@ -204,10 +204,10 @@ int read_xtc_header(const char* fn, int* natoms, unsigned long* nframes, int64_t
     }
 }
 
-void free_xtc_offsets(int64_t** offsets)
+void free_xtc_offsets(int64_t* offsets)
 {
-    if (*offsets != NULL) {
-        free(*offsets);
+    if (offsets != NULL) {
+        free(offsets);
     }
 }
 

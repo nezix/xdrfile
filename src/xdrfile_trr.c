@@ -595,10 +595,10 @@ int read_trr_header(const char* fn, int* natoms, unsigned long* nframes, int64_t
     return exdrOK;
 }
 
-void free_trr_offsets(int64_t** offsets)
+void free_trr_offsets(int64_t* offsets)
 {
-    if (*offsets != NULL) {
-        free(*offsets);
+    if (offsets != NULL) {
+        free(offsets);
     }
 }
 
