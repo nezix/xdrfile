@@ -226,6 +226,16 @@ int read_xtc(XDRFILE* xd, int natoms, int* step, float* time, matrix box, rvec* 
     return exdrOK;
 }
 
+int read_xtc_simple(XDRFILE* xd, int natoms, rvec* x) {
+    int result;
+    int step = 0;
+    float time = 0.0f;
+    float prec = 0.0f;
+    matrix box;
+
+    return read_xtc(xd, natoms, &step, &time, box, x, &prec);
+}
+
 /* Write a frame to xtc file */
 int write_xtc(XDRFILE* xd, int natoms, int step, float time, matrix box, rvec* x, float prec) {
     int result;
