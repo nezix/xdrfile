@@ -611,3 +611,15 @@ int read_trr(XDRFILE* xd, int natoms, int* step, float* t, float* lambda, matrix
              rvec* v, rvec* f, uint8_t* has_prop) {
     return do_trn(xd, true, step, t, lambda, box, &natoms, x, v, f, has_prop);
 }
+
+int read_trr_simple(XDRFILE* xd, int natoms, rvec* x) {
+    int result;
+    int step = 0;
+    float time = 0.0f;
+    float lambda = 0.0f;
+    float prec = 0.0f;
+    matrix box;
+    uint8_t has_prop = 0;
+    int atoms = natoms;
+    return do_trn(xd, true, &step, &time, &lambda, box, &atoms, x, NULL, NULL, &has_prop);
+}

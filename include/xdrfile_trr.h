@@ -51,6 +51,7 @@ void free_trr_offsets(int64_t* offsets);
    NULL the arrays will be read from the file but not used.  */
 int read_trr(XDRFILE* xd, int natoms, int* step, float* t, float* lambda, matrix box, rvec* x,
              rvec* v, rvec* f, uint8_t* has_prop);
+int read_trr_simple(XDRFILE* xd, int natoms, rvec* x);
 
 /* Write a frame to trr file */
 int write_trr(XDRFILE* xd, int natoms, int step, float t, float lambda, matrix box, rvec* x,
